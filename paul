@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Belialba, Paul Ram Alexander B.</title>
+    <style>
+        :root {
+            --purple: #800080;
+            --bg-dark: #121212;
+            --text-white: #ffffff;
+            --project-brown: #8b7355;
+            --scale: 1.5; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+            color: var(--text-white);
+            font-family: "Trebuchet MS", sans-serif;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-name {
+            font-size: calc(1.1rem * var(--scale));
+            font-weight: bold;
+            margin-bottom: 160px; 
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 4px solid var(--purple);
+            border-bottom: 4px solid var(--purple);
+            height: 60px; 
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .nav-side { flex: 1; display: flex; justify-content: space-around; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: calc(0.95rem * var(--scale)); transition: color 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover { color: var(--purple); }
+
+        .nav-center-group {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+       .nav-home {
+    position: absolute;
+    top: -115px; /* Adjust this to sit right above the box */
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: calc(0.8rem * var(--scale));
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none;
+    z-index: 10;
+}
+        .profile-pic {
+    width: 150px;
+    height: 180px;
+    background-color: #2a2a2a;
+    /* This uses the data you just provided */
+    background-image: url('https://scontent.fmnl17-6.fna.fbcdn.net/v/t39.30808-6/658394772_1820308799347609_86297468421839351_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeECXIUMfwV9loDWnHVOvp4TSqbB_XcvVbZKpsH9dy9Vtt1thTwV58aRNSGAAbGY2-n8ezVIDgfXzsk6DD1CiS_u&_nc_ohc=ydfgbLYpjT8Q7kNvwFc06Il&_nc_oc=AdoH8o7xSpGtD_d4W3LbhcO1dgamz6zcl_c0WjH8LJkbURU5Z8Z8nRIJJCLeVnB1Gto&_nc_zt=23&_nc_ht=scontent.fmnl17-6.fna&_nc_gid=VOifd_WQNhnmh03sQbjhlg&_nc_ss=7a32e&oh=00_AfxiixOrU-6RycqfTm-R7zS3J4ubbWMCtFjFWmqTrSnN0g&oe=69CC7B5E');
+    background-size: cover;
+    background-position: center;
+    border: 4px solid var(--purple);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+        .hero-job { font-size: calc(3.5rem * var(--scale)); font-weight: 900; letter-spacing: 15px; margin: 100px 0 150px 0; text-align: center; }
+
+        /* --- CONSTRAINED BRANCHING SECTIONS --- */
+        .branch-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        .center-line {
+            width: 6px;
+            background: var(--purple);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50px; 
+            bottom: 40px; 
+            z-index: -1;
+        }
+
+        .side { width: 100%; position: relative; padding: 60px 0; }
+        
+        .about-side { text-align: right; padding-right: calc(50% + 40px); }
+        .about-branch { 
+            position: absolute; 
+            right: 50%; 
+            top: 50px; 
+            width: 120px; 
+            height: 6px; 
+            background: var(--purple); 
+        }
+        .about-bottom-line { 
+            position: absolute; 
+            right: 50%; 
+            bottom: 40px; 
+            width: 80px; 
+            height: 6px; 
+            background: var(--purple); 
+        }
+
+        .skills-side { text-align: left; padding-left: calc(50% + 40px); }
+        .skills-branch { 
+            position: absolute; 
+            left: 50%; 
+            top: 50px; 
+            width: 120px; 
+            height: 6px; 
+            background: var(--purple); 
+        }
+        .skills-bottom-line { 
+            position: absolute; 
+            left: 50%; 
+            bottom: 40px; 
+            width: 80px; 
+            height: 6px; 
+            background: var(--purple); 
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: calc(1.4rem * var(--scale)); 
+            color: var(--text-white);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            margin-top: 10px;
+            scroll-margin-top: 50px; 
+        }
+
+        .about-text-container {
+            max-width: 550px;
+            margin-left: auto;
+            line-height: 1.8;
+            font-size: calc(1.05rem * var(--scale));
+        }
+
+        .skills-content {
+            font-size: calc(1rem * var(--scale));
+            line-height: 2;
+        }
+
+        /* --- PROJECTS & HOVER --- */
+        .project-section-wrapper { position: relative; padding-top: 80px; margin-top: 60px; }
+        
+        /* Connector from Skills Section to Projects Section */
+        .project-top-connector {
+            position: absolute;
+            top: -140px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 140px;
+            background: var(--purple);
+            z-index: -1;
+        }
+
+        .project-item:hover .box-title {
+    font-weight: 900; /* Extra bold */
+    color: #ffffff;  /* Optional: making it white on hover looks sharp */
+    text-shadow: 0 0 10px var(--purple); /* Optional: adds a subtle glow */
+}
+
+        .project-explanation {
+        font-size: 0.75rem;
+        color: white;
+        line-height: 1.3;
+    margin: 0;
+    }
+        .project-title-container { display: flex; align-items: center; width: 100%; margin-bottom: 40px; position: relative; }
+        .project-line { flex-grow: 1; height: 6px; background-color: var(--purple); }
+        .project-center { padding:  40px; position: center; }
+        .project-title { font-size: 40px; font-weight: bold; text-transform: uppercase; }
+
+      
+
+        
+       .projects-frame { 
+        position: relative; 
+        width: 100%; 
+        padding: 60px 40px; 
+        border: 4px solid var(--purple); 
+    }
+        .project-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
+
+        .box {
+    width: 160px;
+    height: 160px;
+    background-color: var(--project-brown);
+    
+    /* Background Image Centering */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--purple);
+    
+    /* Blueprint shadow effect */
+    box-shadow: 6px 6px 0px rgba(128, 0, 128, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 12px; /* Space between the image and the title below */
+    cursor: pointer;
+}
+
+.box-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(128, 0, 128, 0.9); /* Purple tint on hover */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+       .box:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0px var(--purple);
+}
+
+.box:hover .box-content {
+    opacity: 1;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the text labels under the image */
+    width: 180px;
+}
+.box-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--bright-purple);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+    text-align: center;
+    display: block; /* Ensures it takes its own line */
+}
+
+.box-title {
+    transition: all 0.3s ease;
+}
+
+.box-desc {
+    font-size: 0.65rem;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid rgba(128, 0, 128, 0.2);
+    padding-top: 4px;
+    width: 80%;
+    display: block;
+}
+
+        /* --- FOOTER --- */
+        footer { width: 100%; margin-top: 120px; padding-bottom: 40px; }
+        .contact-row { display: flex; justify-content: space-between; border-bottom: 2px solid #333; padding-bottom: 20px; margin-bottom: 40px; font-size: calc(0.85rem * var(--scale)); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; position: relative; font-size: calc(0.75rem * var(--scale)); }
+        .policy-link { color: white; text-decoration: none; opacity: 0.7; position: absolute; left: 50%; transform: translateX(-50%); }
+        .p-logo { border: 2px solid white; padding: 3px 12px; font-weight: bold; }
+
+        @media (max-width: 900px) {
+            .center-line, .about-branch, .skills-branch, .about-bottom-line, .skills-bottom-line, .project-top-connector, .white-line-branch { display: none; }
+            .side { text-align: center; padding: 20px 0; width: 100%; }
+            .about-side, .skills-side { padding-left: 0; padding-right: 0; }
+            .about-text-container { margin: 0 auto; }
+            .policy-link { position: static; transform: none; }
+            .projects-frame { border-image: none; border: 4px solid var(--purple); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top"></div>
+
+    <div class="container">
+        <div class="header-name">Belialba, Paul Ram Alexander B.</div>
+
+        <nav id="mainNav">
+    <div class="nav-side">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+    </div>
+    <div class="nav-center-group">
+    <a href="#top" class="nav-home">HOME</a>
+    <div class="profile-pic"></div>
+    </div>
+    <div class="nav-side">
+        <a href="#projects">Projects</a>
+        <a href="#contacts">Contacts</a>
+    </div>
+</nav>
+
+        <div class="hero-job">PO-W(I)EB</div>
+
+        <section class="branch-container">
+            <div class="center-line"></div>
+
+            <div class="side about-side">
+                <div class="about-branch"></div>
+                <h2 id="about" class="section-title">ABOUT ME!!</h2>
+                <div class="about-text-container">
+                    <p>
+                        Hello, I am <strong>Belialba, Paul Ram Alexander B.</strong>, 
+                        an aspiring <strong>Full-Stack Web Developer</strong> driven by the challenge 
+                        of turning complex logic into seamless digital experiences.
+                    </p>
+                    <br>
+                    <p>
+                        With a focus on building robust back-end architectures and polished, responsive front-ends, 
+                        I strive to create web solutions that are as functional as they are visually compelling.
+                    </p>
+                </div>
+                <div class="about-bottom-line"></div>
+            </div>
+            
+            <div class="side skills-side">
+                <div class="skills-branch"></div>
+                <h2 id="skills" class="section-title">SKILLS!!</h2>
+                <div class="skills-content">
+                    <p>• HTML5 / CSS3 / JavaScript</p>
+                    <p>• React.js / Node.js</p>
+                    <p>• Python / SQL Databases</p>
+                    <p>• Responsive UI Design</p>
+                </div>
+                <div class="skills-bottom-line"></div>
+            </div>
+        </section>
+
+        <div id="projects" class="project-section-wrapper">
+            <div class="project-top-connector"></div>
+            <div class="project-title-container">
+                <div class="project-line"></div>
+                <div class="project-center">
+                    <h2 class="project-title">PROJECTS!!</h2>
+                    <div class="white-line-branch"></div>
+                </div>
+                <div class="project-line"></div>
+            </div>
+<section class="projects-frame">
+    <div class="project-row">
+        <div class="box" style="background-image: url('https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/656885712_1820309866014169_1015798708916784230_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHrjfTJHBUgrN_BKXthftsPTTLHT04GF-dNMsdPTgYX5zYGBwv8UaEte2D2W-7apFjhwLS_ALKViXrCeQTI78nC&_nc_ohc=aCc-0DrGJ7gQ7kNvwHTGdnb&_nc_oc=AdqKH-QLr4sU5WY-dg2r0pKhoOWTI1tNT_94U0wvdWDOJdJ6dpeFs6oFDbNN6xFicEE&_nc_zt=23&_nc_ht=scontent.fmnl17-2.fna&_nc_gid=h97MLKOLhhFEIGJaOHrwXg&_nc_ss=7a32e&oh=00_AfwEOX7-r_p3pg6zJJnklRJ5CRCnIUbXVISUAWb7trYXUA&oe=69CCB339');">
+            <span class="box-title">Pointer Menu</span>
+            <span class="box-desc">Memory addresses and array reversal.</span>
+        </div>
+        <div class="box" style="background-image: url('https://scontent.fmnl17-4.fna.fbcdn.net/v/t39.30808-6/656826075_1820310116014144_7627883857257590697_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeE8JI2y-5TWYdmP9YNibbzxsqKxv9roA8ayorG_2ugDxt1L49OOAgYWy_92StAATPT-UIsFY2GplTLLbRMYMJ6x&_nc_ohc=t7IAk6jsgFkQ7kNvwF0dKNC&_nc_oc=AdrUJkDlTmF2eHLNBpnTQaSZ_w482tZSuQnQQK8pwAkI087ZwWbe_qnIm129eP4e80Q&_nc_zt=23&_nc_ht=scontent.fmnl17-4.fna&_nc_gid=5LP5ukvQoYatSlmV4WV4iA&_nc_ss=7a32e&oh=00_Afw9zNpoMFL2Hm8RVyCxkAhYC91Su30eLBUnOb-qCAqS1Q&oe=69CCAD74');">
+            <span class="box-title">Kalkuletor</span>
+            <span class="box-desc">Switch-logic arithmetic tool.</span>
+        </div>
+        <div class="box" style="background-image: url('https://scontent.fmnl17-3.fna.fbcdn.net/v/t39.30808-6/658138543_1820310532680769_2163990590002075351_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeETawA7zb9uX2WU_vRKlaE7NNDMURrq_1Y00MxRGur_VoI9vcpD1Rnj8wenu7Am21ZyUXyqzY0bV4AT40BarTlP&_nc_ohc=PDaIi1QTTDMQ7kNvwG__6XD&_nc_oc=AdoyQCCxwIJ5_Vz5zta2EAdDLQSe5rE-8FPhVeh6y9taxY-u3UHWy1Ws6L4bQ5sYc-E&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_gid=6BNBn5B65X_zHq7k9EKoCg&_nc_ss=7a32e&oh=00_AfybpQ5ZCHgSNebljss5U6U68p-CUOHhmTaZ-NwYsSG8tg&oe=69CC7CBC');">
+            <span class="box-title">MaxiMini</span>
+            <span class="box-desc">Algorithm for integer identification.</span>
+        </div>
+        <div class="box" style="background-image: url('https://scontent.fmnl17-4.fna.fbcdn.net/v/t39.30808-6/657516357_1820310742680748_6172165367505524222_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEg3lZOdCDGEOLF6HFJE38z2EoxzbHSAHTYSjHNsdIAdKcdQxnRX7QtSxMwPEW3GN7GNnU7EoMjlZ5yjRRaT0j2&_nc_ohc=d1kO-xTMt4MQ7kNvwGWYCQp&_nc_oc=Adpy9mTGVMxDN2X3qbDMQA7gQkebi38F9ZDG_ui1Qhh1M-pgjMdV1QRpJ3rwr3OQr10&_nc_zt=23&_nc_ht=scontent.fmnl17-4.fna&_nc_gid=794SP6Srfn5CkgJMzYZHCw&_nc_ss=7a3a8&oh=00_AfwaWs4C_AEzs_8sbfw98FTud00cV4CDESr-732qC8_YIg&oe=69CC8B3B');">
+            <span class="box-title">Temp Tech</span>
+            <span class="box-desc">Celsius to Fahrenheit conversion.</span>
+        </div>
+        <div class="box" style="background-image: url('https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/657090082_1820311386014017_8709008414358403419_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEKHbbNkQfE_wqpI6zoHDPQwWqteIsSBr7Baq14ixIGvnTK5J1u9iFgTBwKJTOGdky4Yc_C3nSzOHWL10p_a2tz&_nc_ohc=FRYOWEKX90MQ7kNvwHOf89Q&_nc_oc=AdqCjYXwPpbQbr5Somp8jmTwfcn0AS12vYpqpUHrk9hLmnhrGufmVsaAT9Qe5xzIe8w&_nc_zt=23&_nc_ht=scontent.fmnl17-2.fna&_nc_gid=p3QBeJ_ZsHFjvgp7NFvVeQ&_nc_ss=7a32e&oh=00_AfxlEr5kJFk6VMv2ktkKPmqoRPkFyA4B6Q8IY43lZOLRkw&oe=69CCB3B1');">
+            <span class="box-title">WordMirror</span>
+            <span class="box-desc">String manipulation program.</span>
+        </div>
+    </div>
+</section>
+        </div>
+
+        <footer id="contacts">
+            <div class="contact-row">
+                <span>pouwiie@gmail.com</span>
+                <span>0930-***-****</span>
+                <span>instagram: @dmn.po**</span>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 PO - W (I) EB</div>
+                <a href="#" class="policy-link">Privacy Policy</a>
+                <div class="footer-right">
+                    <span class="p-logo">P</span>
+                    <a href="#top" style="color:white; text-decoration:none;">Return to Top</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
